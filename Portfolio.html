@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Senior Angular & .NET Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#4561a3;
+color:#e2e8f0;
+overflow-x:hidden;
+}
+
+/* animated canvas */
+
+#bgCanvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+/* particles */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(41, 52, 98, .9);;
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav h2{
+color:rgb(31 50 131 / 90%);;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#14b8a6;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero img{
+width:150px;
+border-radius:50%;
+border:4px solid #14b8a6;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.hero span{
+color:#14b8a6;
+}
+
+.typing{
+font-size:24px;
+margin-top:10px;
+color:#38bdf8;
+}
+
+.hero-buttons{
+margin-top:30px;
+}
+
+.btn{
+padding:12px 28px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin:6px;
+font-weight:600;
+}
+
+.btn-primary{
+background:#14b8a6;
+color:white;
+}
+
+.btn-outline{
+border:2px solid #14b8a6;
+background:transparent;
+color:#14b8a6;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.stat{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:14px;
+transition:.4s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+}
+
+.stat h3{
+font-size:36px;
+color:#14b8a6;
+}
+
+/* SECTION */
+
+section{
+padding:80px 8%;
+}
+
+h2{
+color:#14b8a6;
+margin-bottom:25px;
+}
+
+/* SKILLS */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.skill{
+background:rgba(255,255,255,.05);
+padding:20px;
+border-radius:12px;
+text-align:center;
+transition:.3s;
+}
+
+.skill:hover{
+background:#14b8a6;
+color:#0f172a;
+transform:translateY(-8px);
+}
+
+/* EXPERIENCE */
+
+.timeline{
+border-left:2px solid #14b8a6;
+padding-left:25px;
+}
+
+.timeline-item{
+margin-bottom:30px;
+}
+
+.timeline-item h3{
+color:#38bdf8;
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.project{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:14px;
+transition:.4s;
+cursor:pointer;
+}
+
+.project:hover{
+transform:translateY(-12px) scale(1.05);
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact button{
+margin-top:20px;
+padding:12px 28px;
+border:none;
+border-radius:25px;
+background:#14b8a6;
+color:white;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#020617;
+text-align:center;
+padding:25px;
+margin-top:40px;
+}
+.heading-skills
+{
+    margin:1rem;
+}
+</style>
+
+</head>
+
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<div id="particles-js"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2>DevPortfolio</h2>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<!-- <img src="https://i.pravatar.cc/200"> -->
+<img src="./Asset/img/photo.jpg">
+
+<h1>Senior <span>Full Stack Developer</span></h1>
+
+<div class="typing" id="typing"></div>
+
+<div class="hero-buttons">
+
+<button class="btn btn-primary">Hire Me</button>
+
+<button class="btn btn-outline">Download Resume</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>8+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h3>30+</h3>
+<p>Projects</p>
+</div>
+
+<div class="stat">
+<h3>20+</h3>
+<p>Enterprise Apps</p>
+</div>
+
+<div class="stat">
+<h3>10+</h3>
+<p>Technologies</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p style="max-width:900px;line-height:1.8">
+<ul>
+    <li>
+        Delivered impactful solutions to web development for over 8+ years, specializing in .NET, .Net Core,
+        Angular, SQL Server and C# technologies.
+    </li>
+    <li>
+        Proficiently managed the entire SDLC, from requirement analysis to deployment, ensuring the timely and
+error-free delivery of projects.
+    </li>
+    <li>
+Engineered high-performance REST-based applications, accelerating data transmission and boosting
+system efficiency
+</li>
+<li>
+    
+Designed and implemented state-of-the-art .NET applications using .NET and SQL Server, elevating
+system functionality and user experience. Led rigorous code reviews and Established robust testing
+frameworks for quality assurance
+</li>
+<li>
+    Architected user-friendly web interfaces using Angular, HTML, CSS, Bootstrap, JavaScript ,
+enhancing user engagement and satisfaction.
+</li>
+<li>
+    Optimized Database technologies, refining performance with efficient SQL Queries and Stored
+Procedures of relational databases. Diagnosed and resolved critical issues and Leveraged REST API and
+ORM frameworks for data retrieval and manipulation.
+</li>
+<li>
+    Leveraged Angular and other modern front-end frameworks to orchestrate dynamic web applications,
+amplifying user experience and functionality. Partnered with multidisciplinary teams to ensure seamless
+integration.
+</li>
+<li>
+    
+Spearheaded multi-tier applications development, orchestrating seamless integration of database
+operations with user interfaces, validating robust and scalable solutions.
+</li>
+<li>
+    Specialized in Insurance,e-cpmmerce,logistic, Finance, Internal Service Portals, providing specialized solutions tailored to each sector's
+unique requirements.
+</li>
+<li>
+    Commanded GitHub, Azure DevOps Server and GitLab(CI/CD), confirming efficient collaboration and
+optimizing code management within development teams
+</li>
+</ul>
+<!-- Senior Full Stack Developer with **8+ years experience** building enterprise applications using **Angular and .NET Core APIs**.
+
+Expert in scalable architectures, cloud deployment, and high-performance web platforms. -->
+
+</p>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>Technical Skills</h2>
+<h3 class="heading-skills">Frontend Technologies : </h3>
+<div class="skills">
+
+<div class="skill">Angular</div>
+<div class="skill">TypeScript / JavaScript (ES6+)</div>
+<div class="skill">HTML,CSS,Bootstrap / Angular Material</div>
+<div class="skill">REST API Integration</div>
+<div class="skill">RxJS, NgRx (State Management)</div>
+
+
+</div>
+<h3 class="heading-skills">Backend Technologies : </h3>
+<div class="skills">
+<div class="skill">.NET Core / ASP.NET Core API</div>
+<div class="skill">C#</div>
+<div class="skill">Web API Development</div>
+<div class="skill">LINQ</div>
+<div class="skill">Microservices</div>
+<div class="skill">Dependency Injection</div>
+</div>
+<h3 class="heading-skills">Database : </h3>
+<div class="skills">
+<div class="skill">Microsoft SQL Server</div>
+<div class="skill">Stored Procedures</div>
+<div class="skill">Database Design & Optimization</div>
+</div>
+
+<h3 class="heading-skills">Tools & Platforms : </h3>
+<div class="skills">
+<div class="skill">Visual Studio / VS Code</div>
+<div class="skill">Git / GitHub / GitLab</div>
+<div class="skill">Postman / Swagger</div>
+<div class="skill">Azure / IIS Deployment</div>
+</div>
+
+<h3 class="heading-skills">Architecture & Practices : </h3>
+<div class="skills">
+<div class="skill">RESTful API Design</div>
+<div class="skill">Microservices Architecture</div>
+<div class="skill">SOLID Principles</div>
+<div class="skill">Object-Oriented Programming (OOP)</div>
+<div class="skill">Unit Testing (xUnit / NUnit)</div>
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<h2>Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Senior Developer</h3>
+<p>ABC Technologies | 2021-Present</p>
+</div>
+
+<div class="timeline-item">
+<h3>Full Stack Developer</h3>
+<p>XYZ Solutions | 2018-2021</p>
+</div>
+
+<div class="timeline-item">
+<h3>Software Developer</h3>
+<p>TechSoft | 2016-2018</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>HR Management System</h3>
+<p>Angular + .NET Core enterprise HR platform.</p>
+</div>
+
+<div class="project">
+<h3>E-Commerce Platform</h3>
+<p>Scalable ecommerce application.</p>
+</div>
+
+<div class="project">
+<h3>Logistics Tracking</h3>
+<p>Real-time shipment tracking dashboard.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact</h2>
+
+<p>Email: vaidhya2@gmail.com</p>
+
+<button>Send Message</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 Senior Angular + .NET Developer</p>
+
+</footer>
+
+<script>
+
+/* typing animation */
+
+const roles=[
+"Angular Developer",
+".NET Core API Developer",
+"Full Stack Engineer",
+"8+ Years Enterprise Experience"
+]
+
+let i=0,j=0,txt="",del=false
+
+function type(){
+
+txt=roles[i]
+
+if(!del){
+document.getElementById("typing").innerHTML=txt.substring(0,j++)
+}else{
+document.getElementById("typing").innerHTML=txt.substring(0,j--)
+}
+
+if(j==txt.length){
+del=true
+setTimeout(type,1200)
+return
+}
+
+if(j==0){
+del=false
+i=(i+1)%roles.length
+}
+
+setTimeout(type,100)
+
+}
+
+type()
+
+/* particles */
+
+particlesJS("particles-js",{
+particles:{
+number:{value:70},
+size:{value:3},
+color:{value:"#14b8a6"},
+line_linked:{enable:true,color:"#14b8a6"},
+move:{speed:2}
+}
+})
+
+</script>
+
+</body>
+</html>

@@ -15,6 +15,97 @@
 
 <style>
 
+
+
+/* Links Section */
+.contact {
+  padding: 40px 20px;
+}
+
+.contact h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* Project Grid */
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* Individual Project Box */
+.project {
+  background: #ffffff;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  border-color: #0d9488;
+  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.15);
+}
+
+/* Project Heading */
+.project h3 {
+  color: #0f172a;
+  font-size: 19px;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* Project Description */
+.project p {
+  color: white;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* Project Links */
+.project-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #0d9488;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.project-link:hover {
+  background: #0f766e;
+}
+
+/* Responsive Design */
+@media (max-width: 650px) {
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 25px 12px;
+  }
+
+  .project {
+    padding: 20px;
+  }
+}
+
+/* ------ */
 *{
 margin:0;
 padding:0;
@@ -174,7 +265,7 @@ padding:80px 8%;
 }
 
 h2{
-color:#14b8a6;
+color:white;
 margin-bottom:25px;
 }
 
@@ -509,7 +600,7 @@ Expert in scalable architectures, cloud deployment, and high-performance web pla
 </section>
 
 
-<section id="links" class="contact">
+<!-- <section id="links" class="contact">
 
 <h2>Links</h2>
 
@@ -534,10 +625,75 @@ Expert in scalable architectures, cloud deployment, and high-performance web pla
     >
       Agentic AI API 
     </a>
+            <a
+      href="https://github.com/devanandvaidhya/ReactAI"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project-link"
+    >
+      Medical Assistant React App 
+    </a>
     
 </div>
 
+</section> -->
+
+
+<section id="links" class="contact">
+
+  <h2>Links</h2>
+
+  <div class="project-container">
+
+    <!-- Medical Assistant Live Project -->
+    <div class="project">
+      <h3>🏥 Medical Assistant</h3>
+      <p>AI-Powered Healthcare Assistant</p>
+
+      <a
+        href="https://aisysassist.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+      >
+        Visit Live Project ↗
+      </a>
+    </div>
+
+    <!-- Agentic AI API -->
+    <div class="project">
+      <h3>⚙️ Agentic AI API</h3>
+      <p>Backend API - FastAPI</p>
+
+      <a
+        href="https://github.com/devanandvaidhya/agentic-ai-fastapi"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+      >
+        View GitHub ↗
+      </a>
+    </div>
+
+    <!-- React Frontend -->
+    <div class="project">
+      <h3>💻 Medical Assistant React App</h3>
+      <p>Frontend Application - React</p>
+
+      <a
+        href="https://github.com/devanandvaidhya/ReactAI"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link"
+      >
+        View GitHub ↗
+      </a>
+    </div>
+
+  </div>
+
 </section>
+
 
 <!-- CONTACT -->
 
